@@ -33,7 +33,7 @@
 			<td>[${guestVo.no}]</td>
 			<td>${guestVo.name }</td>
 			<td>${guestVo.reg_date }</td>
-			<td><a href="/guestbook5/gbc/dform&no=${guestVo.no}">삭제</a></td>
+			<td><a href="/guestbook5/gbc/dform?no=${guestVo.no}">삭제</a></td>
 		</tr>
 		<tr>
 			<td colspan="4">${guestVo.content }</td>

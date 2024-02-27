@@ -53,14 +53,25 @@ public class GuestbookController {
 	}
 	//삭제폼
 	@RequestMapping(value="/gbc/dform", method= {RequestMethod.GET, RequestMethod.POST })
-	public String dform(@RequestParam("no") int no ) {
+	public String dform() {
 		System.out.println("GuestbookController.dform");
 		
-		//서비스 연결
-		guestService.exeDform(no);
+		//서비스 연결-안함-> jsp에서 input:hidden으로 no숨기기
 		
 		//포워드
-		return "deletForm";
+		return "deleteForm";
 	}
 	//삭제
+	@RequestMapping(value="/gbc/delete", method= {RequestMethod.GET, RequestMethod.POST})
+	public String  delete(@RequestParam("no") int no, String pw) {
+		System.out.println("GuestbookController.delete");
+		// 넣는 값들 가져와서 vo로 묶기
+		GuestVo guestVo = new GuestVo(no, pw);
+		
+		//서비스 연결
+		guestService.exeDelete(guestVo);
+		
+		//리다이렉트
+		return "redirect:/gbc/alform";
+	}
 }

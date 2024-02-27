@@ -6,14 +6,13 @@
 <title>delete Form</title>
 </head>
 <body>
-	<form >
-	<input type="text" name="no" value="<%=request.getParameter("no")%>">
+	<form action="/guestbook5/gbc/delete">
+		<input type="text" name="no" value="${param.no }">
 		<table>
 			<tr>
 				<td>비밀번호</td>
 				<td><input type="password" name="pw"></td>
 				<td><button type="submit">삭제</button></td>
-				<input type="text" name="action" value="delete" >
 			</tr>
 		</table>
 	</form>

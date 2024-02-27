@@ -32,10 +32,16 @@ public class GuestService {
 		return count;
 	}
 	//삭제폼
-	public GuestVo exeDform(int no) {
+//	public GuestVo exeDform(int no) {
+//		//DB연결
+//		GuestVo guestVo =guestDao.dform(no);
+
+//		return guestVo;
+//	}
+	//삭제
+	public int exeDelete(GuestVo guestVo) {
 		//DB연결
-		GuestVo guestVo =guestDao.dform(no);
-		//포워드
-		return guestVo;
+		int count = guestDao.delete(guestVo);
+		return count;
 	}
 }

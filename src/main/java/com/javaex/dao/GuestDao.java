@@ -122,37 +122,62 @@ public class GuestDao {
 		return count;
 	}
 	//삭제폼(dform)
-	public GuestVo dform(int no) {
-		GuestVo guestVo = null;
+//	public GuestVo dform(int no) {
+//		GuestVo guestVo = null;
+//		this.getConnection();
+//		try {
+//			//sql문
+//			String query="";
+//			query +=" select name ";
+//			query +=" 		,no";
+//			query +=" 		,password ";
+//			query +=" from guestbook ";
+//			query +=" where no=? ";
+//			query +=" and password=? ";
+//			
+//			//바인딩
+//			pstmt = conn.prepareStatement(query);
+//			pstmt.setInt(1, no);
+//			
+//			//실행
+//			rs = pstmt.executeQuery();
+//			while(rs.next()) {
+//				int num = rs.getInt("no");
+//				String pw = rs.getString("password");
+//				
+//				guestVo = new GuestVo(num, pw);
+//			}
+//
+//			
+//		}catch (SQLException e) {
+//			System.out.println("error:" + e);
+//			}
+//		this.close();
+//		return guestVo;
+//	}
+	//삭제
+	public int delete(GuestVo guestVo) {
 		this.getConnection();
+		int count =-1;
 		try {
-			//sql문
+			//sql문 준비
 			String query="";
-			query +=" select name ";
-			query +=" 		,no";
-			query +=" 		,password ";
-			query +=" from guestbook ";
-			query +=" where no=? ";
-			query +=" and password=? ";
+			query += " delete  ";
+			query += " from guestbook ";
+			query += " where no=?  ";
+			query += " and password=? ";
 			
 			//바인딩
-			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, no);
+			pstmt= conn.prepareStatement(query);
+			pstmt.setInt(1, guestVo.getNo());
+			pstmt.setString(2, guestVo.getPw());
 			
 			//실행
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				int num = rs.getInt("no");
-				String pw = rs.getString("password");
-				
-				guestVo = new GuestVo(num, pw);
-			}
-
-			
+			count = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			System.out.println("error:" + e);
 			}
 		this.close();
-		return guestVo;
+		return count;
 	}
 }//Dao끝
