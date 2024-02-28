@@ -121,40 +121,7 @@ public class GuestDao {
 		this.close();
 		return count;
 	}
-	//삭제폼(dform)
-//	public GuestVo dform(int no) {
-//		GuestVo guestVo = null;
-//		this.getConnection();
-//		try {
-//			//sql문
-//			String query="";
-//			query +=" select name ";
-//			query +=" 		,no";
-//			query +=" 		,password ";
-//			query +=" from guestbook ";
-//			query +=" where no=? ";
-//			query +=" and password=? ";
-//			
-//			//바인딩
-//			pstmt = conn.prepareStatement(query);
-//			pstmt.setInt(1, no);
-//			
-//			//실행
-//			rs = pstmt.executeQuery();
-//			while(rs.next()) {
-//				int num = rs.getInt("no");
-//				String pw = rs.getString("password");
-//				
-//				guestVo = new GuestVo(num, pw);
-//			}
-//
-//			
-//		}catch (SQLException e) {
-//			System.out.println("error:" + e);
-//			}
-//		this.close();
-//		return guestVo;
-//	}
+
 	//삭제
 	public int delete(GuestVo guestVo) {
 		this.getConnection();

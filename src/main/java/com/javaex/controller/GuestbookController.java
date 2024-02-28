@@ -56,7 +56,7 @@ public class GuestbookController {
 	public String dform() {
 		System.out.println("GuestbookController.dform");
 		
-		//서비스 연결-안함-> jsp에서 input:hidden으로 no숨기기
+		//서비스 연결-안함-> jsp에서 input:hidden으로 no숨기기. 다른 데이터 안가져와도 나중에 '삭제'에서 no받을 수 있음.
 		
 		//포워드
 		return "deleteForm";
